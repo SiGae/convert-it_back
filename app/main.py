@@ -1,9 +1,26 @@
 from typing import Optional
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+
 from typing import List
 from typing import Dict
 from controller.c_convert_text import c_dec_hex
-app = FastAPI()
+
+app = FastAPI(
+    title = "Convertit",
+    version = "0.0.1",
+    terms_of_service = "https://sigae.asuscomm.com:9210",
+    doc_url = '/docs',
+    redoc_url = '/redoc'
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["127.0.0.1:8000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 async def startup():
