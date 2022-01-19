@@ -54,11 +54,11 @@ def convert_from_oct(to_type: str, data_list: List[oct]):
 
     for data in data_list:
         if to_type == "bin":
-            result_list.append(int(data, 8))
+            result_list.append(bin(int(data, 8)))
         elif to_type == "dec":
             result_list.append(int(data, 8))
         elif to_type == "hex":
-            result_list.append(int(data, 8))
+            result_list.append(hex(int(data, 8)))
 
     response_data = (
             {
