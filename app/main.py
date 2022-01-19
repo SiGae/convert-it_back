@@ -61,9 +61,9 @@ async def radix(request: Request, from_type: str, data: dict):
     elif from_type == "bin":
         output_data = c_radix.convert_from_bin(data['to_type'], data['data'])
     elif from_type == "oct":
-        output_data == c_radix.convert_from_oct(data['to_type'], data['data'])
+        output_data = c_radix.convert_from_oct(data['to_type'], data['data'])
     elif from_type == "hex":
-        output_data == c_radix.convert_from_hex(data['to_type'], data['data'])
+        output_data = c_radix.convert_from_hex(data['to_type'], data['data'])
     
     return output_data
 
