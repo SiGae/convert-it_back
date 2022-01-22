@@ -30,15 +30,6 @@ async def startup():
 async def shutdown():
     print("API서버 구동 종료")
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
-
-
 @app.post("/upload/dec_hex/{api_type}", deprecated=True)
 async def convert_decimal_to_hex(request: Request, api_type: str, data: dict):
     data = await request.json()
