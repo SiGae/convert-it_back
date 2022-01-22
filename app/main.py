@@ -9,9 +9,9 @@ from controller.c_convert_text import c_dec_hex, c_radix
 app = FastAPI(
     title = "Convertit",
     version = "0.0.1",
-    # terms_of_service = "https://sigae.asuscomm.com:9210",
-    doc_url = '/docs',
-    redoc_url = '/redoc'
+    docs_url='/api/docs',
+    redoc_url='/api/redoc',
+    openapi_url='/api/openapi.json'
 )
 
 app.add_middleware(
@@ -42,7 +42,7 @@ async def convert_decimal_to_hex(request: Request, api_type: str, data: dict):
     return output_data
     
 
-@app.post("/upload/radix/{from_type}")
+@app.post("/api/upload/radix/{from_type}")
 async def radix(request: Request, from_type: str, data: dict):
     data = await request.json()
     output_data = dict()
