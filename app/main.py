@@ -21,7 +21,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+#sample
 @app.on_event("startup")
 async def startup():
     print("API서버 구동 시작")
